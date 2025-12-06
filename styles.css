@@ -1,0 +1,144 @@
+/* QuickTube Controls - Styles */
+
+/* Container - no background, just grouping for the buttons */
+.quicktube-controls-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+/* Buttons styled to match YouTube's native controls */
+.quicktube-btn {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  height: 100% !important;
+  width: 48px !important;
+  min-width: 48px !important;
+  padding: 0 !important;
+  margin: 0;
+  border-radius: 0;
+  transition: opacity 0.1s ease;
+  opacity: 0.9;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.quicktube-btn svg {
+  width: 24px;
+  height: 24px;
+  color: #ffffff !important;
+  fill: #ffffff;
+}
+
+.quicktube-btn:hover {
+  opacity: 1;
+}
+
+.quicktube-btn:focus-visible {
+  outline: 2px solid #3ea6ff;
+  outline-offset: 2px;
+}
+
+/* Popup Container - YouTube-style glassy look */
+.quicktube-popup {
+  position: fixed;
+  background: rgba(24, 24, 24, 0.6);
+  border-radius: 12px;
+  padding: 8px 0;
+  min-width: 180px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  animation: quicktube-fadeIn 0.15s ease-out;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@keyframes quicktube-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Popup Options */
+.quicktube-popup-option {
+  padding: 10px 16px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "YouTube Sans", "Roboto", sans-serif;
+  transition: background-color 0.15s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.quicktube-popup-option:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.quicktube-popup-option:active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Active/Selected Option */
+.quicktube-popup-option.active {
+  color: #ffffff;
+  font-weight: 500;
+  position: relative;
+}
+
+.quicktube-popup-option.active::before {
+  content: "✓";
+  position: absolute;
+  left: 4px;
+  font-weight: bold;
+}
+
+/* Ensure buttons stay visible in theater mode */
+.ytp-big-mode .quicktube-btn {
+  height: 36px !important;
+  width: 36px !important;
+}
+.ytp-big-mode .quicktube-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Responsive adjustments for smaller screens - buttons inside YT controls */
+@media (max-width: 900px) {
+  .quicktube-btn {
+    width: 40px !important;
+    min-width: 40px !important;
+  }
+  .quicktube-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .quicktube-btn {
+    width: 36px !important;
+    min-width: 36px !important;
+  }
+  .quicktube-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}

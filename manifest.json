@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "QuickTube Controls",
+  "version": "1.0.0",
+  "description": "Enhanced YouTube controls with screenshot, quality selector, and playback speed options",
+  "permissions": ["activeTab"],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["contentScript.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end",
+      "world": "MAIN"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "64": "icons/icon64.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*.svg"],
+      "matches": ["https://www.youtube.com/*"]
+    }
+  ]
+}
